@@ -36,3 +36,9 @@ body{
     border: 1px solid coral;
     border-radius: 30px;
 }
+.container .info form .error{
+    color: red;
+    list-style: disc;
+    font-size: 20px;
+    text-decoration: underline;
+}

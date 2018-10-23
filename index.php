@@ -1,13 +1,15 @@
 <?php
+    //This is because we are working with sessions
     session_start();
+    //this is verifying if we have an active session
     if(isset($_SESSION["usuario"])){
-        header("index.php");
+        header("Location: index.php");
     }
     //this is gonna bring the functions nedless
     require "conexion.php";
 
     $errores = "";
-
+    //this is gonna verify the info has been sent
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = filter_var($_POST["email"],FILTER_SANITIZE_STRING);
         $contra = $_POST["password"];

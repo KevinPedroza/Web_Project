@@ -1,7 +1,7 @@
 <?php
 
     //This is calling the conexion file to get into the database
-    require "../conexion.php";
+    require "conexion.php";
     //Here we are creating the user class
     class User{
 
@@ -10,7 +10,7 @@
         public $telefono;
         public $correo;
         public $direccion;
-        public $contra
+        public $contra;
         public $tipo;
 
         function __construct($nombre,$apellidos,$telefono,$correo,$direccion,$contra,$tipo){
@@ -25,7 +25,7 @@
         //this function will insert data into the database
         function insert(){
             $conexion = conexion();
-            $sql = "INSERT INTO usuarios VALUES('$this->nombre', '$this->apellidos', '$this->telefono', '$this->correo', '$this->direccion','$this->contra','$this->tipo')";
+            $sql = "INSERT INTO usuarios VALUES(null,'$this->nombre', '$this->apellidos', '$this->telefono', '$this->correo', '$this->direccion','$this->contra','$this->tipo');";
             $conexion->query($sql);
         }
 

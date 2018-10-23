@@ -27,43 +27,50 @@
             <h2>Sing Up</h2>
             <div class="row">
                 <!-- this form will call the php file to interact -->
-                <form class="col s12" method="post">
+                <form class="col s12" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="row">
                         <div class="input-field col s4">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="icon_prefix" type="text" class="validate" required>
+                        <input id="icon_prefix" type="text" name="nombre" class="validate" required>
                         <label for="icon_prefix">Name</label>
                         </div>
                         <div class="input-field col s4">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="lastname" type="text" class="validate" required>
+                        <input id="lastname" type="text" name="apellido" class="validate" required>
                         <label for="lastname">Las Name</label>
                         </div>
                         <div class="input-field col s4">
                         <i class="material-icons prefix">phone</i>
-                        <input id="icon_telephone" type="tel" class="validate" required>
+                        <input id="icon_telephone" type="number" name="telefono" class="validate" required>
                         <label for="icon_telephone">Telephone</label>
                         </div>
                         <div class="input-field col s6">
                         <i class="material-icons prefix">mail</i>
-                        <input id="correo" type="email" class="validate" required>
+                        <input id="correo" type="email" name="correo" class="validate" required>
                         <label for="correo">Email</label>
                         </div>
                         <div class="input-field col s6">
                         <i class="material-icons prefix">location_on</i>
-                        <input id="dire" type="text" class="validate" required>
+                        <input id="dire" type="text" name="dire" class="validate" required>
                         <label for="dire">Address</label>
                         </div>
                         <div class="input-field col s6">
                         <i class="material-icons prefix">lock</i>
-                        <input id="pass" type="password" class="validate" required>
+                        <input id="pass" type="password" name="contra" class="validate" required>
                         <label for="pass">Password</label>
                         </div>
                         <div class="input-field col s6">
                         <i class="material-icons prefix">lock</i>
-                        <input id="cpass" type="password" class="validate" required>
+                        <input id="cpass" type="password" name="contra2" class="validate" required>
                         <label for="cpass">Confirm Password</label>
                         </div>
+                    </div>
+                    <div class="error">
+                        <ol>
+                        <?php if(!empty($errores)):?>
+                            <?php echo $errores;?>
+                        <?php endif;?>
+                        </ol>
                     </div>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Register new User
                         <i class="material-icons right">send</i>
