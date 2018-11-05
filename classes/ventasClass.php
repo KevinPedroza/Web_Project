@@ -1,6 +1,6 @@
 <?php
     //This is calling the conexion file to get into the database
-    require "../conexion.php";
+    require "conexion.php";
     //Here we are creating the sale class
     class Venta{
 

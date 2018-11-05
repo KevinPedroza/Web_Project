@@ -14,7 +14,6 @@ body{
     width: 100%;
 }
 .container .info{
-    box-shadow: -1px 0px 18px 0px rgba(0,0,0,0.75);
     margin: auto;
     background: rgba(215,207,207, 0.9);
     border-radius: 20px;

@@ -1,32 +1,32 @@
 <?php
     //This is calling the conexion file to get into the database
-    require "../conexion.php";
+    require "conexion.php";
     //Here we are creating the category class
     class Categoria{
 
-        public $id_cate;
         public $categoria;
+        public $descripcion;
 
-        function __construct($id_cate,$categoria){
-            $this->id_cate = $id_cate;
+        function __construct($categoria,$descripcion){
+            $this->descripcion = $descripcion;
             $this->categoria = $categoria;
         }
         //this function will insert data into the database
         function insert(){
             $conexion = conexion();
-            $sql = "INSERT INTO categorias VALUES('$this->id_cate', '$this->categoria')";
+            $sql = "INSERT INTO categorias VALUES(null, '$this->categoria', '$this->descripcion')";
             $conexion->query($sql);
         }
         //this function will delete any category from the data base
-        function delete(){
+        function delete($id){
             $conexion = conexion();
-            $sql = "DELETE FROM categorias WHERE id_categoria = '$this->id_cate';";
+            $sql = "DELETE FROM categorias WHERE id = '$id';";
             $conexion->query($sql);
         }
         //this function will update any category from the database
         function update($id){
             $conexion = conexion();
-            $sql = "UPDATE categorias SET id_categoria = '$this->id_cate', categoria = '$this->categoria' WHERE id = '$id';";
+            $sql = "UPDATE categorias SET categoria = '$this->categoria' descripcion = '$this->descripcion' WHERE id = '$id';";
             $conexion->query($sql);
         }
     }
