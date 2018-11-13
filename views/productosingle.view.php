@@ -15,7 +15,7 @@
         }
     </script>
 
-    <?php include "views/header.view.php";?>
+    <?php include "header.php";?>
     <a href="vistaproductos.php?idcate=<?php echo $idcate;?>" style="border-radius: 25px; width:5%; margin-top:10px;" title="Regresar" class="btn"><i class="material-icons">arrow_back</i></a>
     <main style ="text-align:center; width=100%;">
         <div class="container"> 

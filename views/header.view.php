@@ -38,7 +38,7 @@
                         <a href="cliente.php" class="brand-logo"><i class="material-icons">shopping_cart</i>Hola, <?php echo $nombre["nombre"]; ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- Traer la cantidad de compras del cliente de la base de datos -->
-                        <li><a href="#"><i class="fas fa-shopping-cart"></i><span class="new badge">14</span></a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i><span class="new badge"><?php echo $cantidad["cantidad"];?></span></a></li>
                         <li><a href="#" data-target="dropdown1" class="dropdown-trigger"><i class="material-icons">more_vert</i></a></li>
                         </ul>
                     </div>

@@ -8,7 +8,7 @@
 </head>
 <body>  
 
-    <?php include "views/header.view.php";?>
+    <?php include "header.php";?>
 
     <main style="text-align:center;">
     <h2>Productos</h2>
