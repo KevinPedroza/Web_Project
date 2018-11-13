@@ -10,6 +10,8 @@
         $email = filter_var($_POST["email"],FILTER_SANITIZE_STRING);
         $contra = $_POST["password"];
         $contra = hash('sha512',$contra);
+
+        //this is bringing the conexion from the database
         $conexion = conexion();
 
         $sql = "SELECT * FROM usuarios WHERE correo = :email AND contra = :con;";

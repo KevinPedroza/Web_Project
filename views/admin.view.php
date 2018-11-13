@@ -19,13 +19,37 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <?php
-    
+        //this is gonna bring the functions nedless
+        require "conexion.php";
         
+        //this is establishing the conexion from the database
+        $conexion = conexion();
+
+        //this is gonna bring the count of users registered
+        $sql = "SELECT count(*) AS cuenta FROM usuarios;";
+        $info2 = $conexion->prepare($sql); 
+        $info2->execute();
+        $info = $info2->fetch();
+        $usuarios = $info["cuenta"];
+
+        //this is gonna bring the count of sales registered
+        $sql = "SELECT count(*) AS cuenta FROM ventas;";
+        $info2 = $conexion->prepare($sql); 
+        $info2->execute();
+        $info = $info2->fetch();
+        $ventas = $info["cuenta"];
+
+        //this is gonna bring the sum of sales registered
+        $sql = "SELECT SUM(p.precio) AS total FROM ventas AS v INNER JOIN productos AS p ON p.id_producto = v.id_producto;";
+        $info2 = $conexion->prepare($sql); 
+        $info2->execute();
+        $info = $info2->fetch();
+        $total = $info["total"];
 
         $dataPoints = array(
-            array("label"=> "Cantidad de Clientes Registrados", "y"=> 590),
-            array("label"=> "Cantidad de Productos Vendidos", "y"=> 261),
-            array("label"=> "Monto total de Ventas", "y"=> 158),
+            array("label"=> "Cantidad de Clientes Registrados: " . $usuarios, "y"=> $usuarios),
+            array("label"=> "Cantidad de Productos Vendidos: " . $ventas, "y"=> $ventas),
+            array("label"=> "Monto total de Ventas: $" . $total, "y"=> $total),
         );
         
     ?>
