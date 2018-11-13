@@ -19,28 +19,34 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#modal1').modal();
-            $('#modal1').modal('open'); 
+
+            if(!localStorage.getItem("#modal1")){    
+                $('#modal1').modal(); 
+                $('#modal1').modal("open");
+                localStorage.setItem("#modal1","true");
+            }
         });
     </script>
 
 
     <?php
     
+        //this realizing the conexion
+        $conexion = conexion();
+
+        //ID'S USER
+        $id = $nombre["id"];
+
+        //this is bringing the information from the user
+        $sql = "SELECT COUNT(v.id_cliente) AS cantidad, SUM(p.precio) AS total FROM productos AS p INNER JOIN ventas AS v ON v.id_producto =p.id_producto WHERE v.id_cliente = '$id'";
+        $info2 = $conexion->prepare($sql); 
+        $info2->execute();
+        $info = $info2->fetch();    
+
+        //this is establishing the points on the chart
         $dataPoints = array(
-            array("x"=> 10, "y"=> 41),
-            array("x"=> 20, "y"=> 35, "indexLabel"=> "Lowest"),
-            array("x"=> 30, "y"=> 50),
-            array("x"=> 40, "y"=> 45),
-            array("x"=> 50, "y"=> 52),
-            array("x"=> 60, "y"=> 68),
-            array("x"=> 70, "y"=> 38),
-            array("x"=> 80, "y"=> 71, "indexLabel"=> "Highest"),
-            array("x"=> 90, "y"=> 52),
-            array("x"=> 100, "y"=> 60),
-            array("x"=> 110, "y"=> 36),
-            array("x"=> 120, "y"=> 49),
-            array("x"=> 130, "y"=> 41)
+            array("label"=> "Cantidad de Compras: " . $info["cantidad"], "y"=> $info["cantidad"]),
+            array("label"=> "Monto Total de Compras: " . $info["total"], "y"=> $info["total"]),
         );
             
     ?>
@@ -56,16 +62,19 @@
                 text: "Compras de <?php echo $nombre["nombre"];?>"
             },
             data: [{
-                type: "column", //change type to bar, line, area, pie, etc
-                //indexLabel: "{y}", //Shows y value on all Data Points
-                indexLabelFontColor: "#5A5757",
-                indexLabelPlacement: "outside",   
+                type: "pie",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - #percent%",
+                yValueFormatString: "฿#,##0",
                 dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
             }]
         });
         chart.render();
         
         }
+
     </script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -81,7 +90,7 @@
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">Ver Compras</a></li>
             <li class="divider"></li>
-            <li><a href="cerrar.php">Cerrar Sesión</a></li>
+            <li><a onclick="localStorage.clear();" href="cerrar.php">Cerrar Sesión</a></li>
         </ul>
         
         <div class="navbar-fixed">
@@ -101,17 +110,16 @@
     <div class="container">
         <main>
             <div class="titulo">
-                <h3>Productos más Vendidos</h3>
+                <h3>Algunos Productos</h3>
             </div>
             <!-- Traer las imagenes mas vendidas de la base de datos -->
             <div class="most">
                 <div class="carousel">
                     <h5><i class="material-icons dere">arrow_forward</i> Desliza <i class="material-icons izqui">arrow_back</i></h5>
-                    <a class="carousel-item" href="#"><img src="img/ipad.jpg"></a>
-                    <a class="carousel-item" href="#"><img src="img/iphonex.jpg"></a>
-                    <a class="carousel-item" href="#"><img src="img/mac.jpg"></a>
-                    <a class="carousel-item" href="#"><img src="img/refri.jpg"></a>
-                    <a class="carousel-item" href="#"><img src="img/tv.jpeg"></a>
+
+                    <?php foreach($prod as $productos):?>
+                        <a class="carousel-item" href="#"><img src="img/<?php echo $productos['img'];?>"></a>
+                    <?php endforeach;?>
                 </div>
             </div>
         </main>
@@ -125,70 +133,48 @@
 
                 <div class="row">
 
-                    <div class="col s12 m3">
-                        <div class="card">
-                            <div class="card-image">
-                            <img src="img/movie.jpg" height="290">
-                            <span class="card-title white-text">Movie Category</span>
-                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">more_vert</i></a>
-                            </div>
-                            <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m3">
-                        <div class="card">
-                            <div class="card-image">
-                            <img src="img/game.jpg" height="290">
-                            <span class="card-title white-text">Game Category</span>
-                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">more_vert</i></a>
-                            </div>
-                            <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    <?php foreach($cate as $categoria):?>
+                        <div class="col s3 m3">
+                            <div class="card blue-grey darken-1">
+                                <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">more_vert</i></a>
+                                <div class="card-content white-text">
+                                <h2 class="card-title">Categoria: <?php echo $categoria["categoria"];?></h2>
+                                <p><?php echo $categoria["descripcion"];?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col s12 m3">
-                        <div class="card">
-                            <div class="card-image">
-                            <img src="img/exercise.jpg" height="290">
-                            <span class="card-title black-text">Exercise Category</span>
-                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">more_vert</i></a>
-                            </div>
-                            <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m3">
-                        <div class="card">
-                            <div class="card-image">
-                            <img src="img/electronic.jpg" height="290">
-                            <span class="card-title black-text">Electronic Devices</span>
-                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">more_vert</i></a>
-                            </div>
-                            <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach;?>
 
                 </div>
 
             </div>
 
             <ul class="pagination">
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                <li class="active"><a href="#!">1</a></li>
-                <li class="waves-effect"><a href="#!">2</a></li>
-                <li class="waves-effect"><a href="#!">3</a></li>
-                <li class="waves-effect"><a href="#!">4</a></li>
-                <li class="waves-effect"><a href="#!">5</a></li>
-                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        
+                <?php if($pagina == 1): ?>
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <?php else: ?>
+                    <li><a href="?pagina=<?php echo $pagina - 1;?>"><i class="material-icons">chevron_left</i></a></li>
+                <?php endif;?>
+
+                <?php 
+                
+                    for($i = 1; $i <= $numeropaginas; $i++){
+                        if($pagina == $i){    
+                            echo "<li class='active'><a href='?pagina=$i'>$i</a></li>";
+                        }else{
+                            echo "<li class='waves-effect'><a href='?pagina=$i'>$i</a></li>";
+                        }
+                    }
+                
+                ?>
+
+                <?php if($pagina == $numeropaginas):?>
+                    <li class="disabled"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+                <?php else:?>
+                    <li><a href="?pagina=<?php echo $pagina + 1;?>"><i class="material-icons">chevron_right</i></a></li>
+                <?php endif;?>
+
             </ul>
             <br>
             <br>
