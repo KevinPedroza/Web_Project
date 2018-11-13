@@ -29,10 +29,6 @@
                 }
                 document.getElementById(cityName).style.display = "block"; 
             }
-
-            $(document).ready(function(){
-                $('.modal').modal();
-            });
     </script>
 
     <header>   
@@ -41,9 +37,8 @@
             <button class="w3-bar-item w3-button" onclick="openCity('crear')">Crear Categorias</button>
             <button class="w3-bar-item w3-button" onclick="openCity('ver')">Ver Categorias</button>
             <button class="w3-bar-item w3-button" onclick="openCity('modi')">Modificar Categorias</button>
-            <button class="w3-bar-item w3-button" onclick="openCity('eli')">Eliminar Categorias</button>
         </div>
-
+        <a href="admin.php" style="border-radius: 25px;" class="btn"><i class="material-icons">arrow_back</i></a>
         <div id="crear" class="city wow slideInLeft">
             <h2>Crea la Categoria</h2>
 
@@ -60,6 +55,13 @@
                     <i class="material-icons prefix">description</i>
                     <textarea id="textarea1" class="materialize-textarea" name="des" required></textarea>
                     <label for="textarea1">Descripción de la Categoria</label>
+                    </div>
+                    <div class="error" style="color: red; font-size: 20px;">
+                    <ol>
+                    <?php if(!empty($errores)):?>
+                        <?php echo $errores;?>
+                    <?php endif;?>
+                    </ol>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Guardar Categoria
@@ -101,31 +103,21 @@
                             <p><?php echo $categoria["descripcion"];?></p>
                             </div>
                             <div class="card-action">
-                                <a href="#modal1" class="btn modal-trigger" title="Editar"> <i class="material-icons">create</i> </a>
+                                <a href="modificate.php?id=<?php echo $categoria["id"];?>" class="btn modal-trigger" style="border-radius: 20px;" title="Editar"> <i class="material-icons">create</i> </a>
+                                
+                                <form action="eliminacate.php" style="display: inline-block;" method="POST" onsubmit="return confirm('Seguro que desea Eliminar la categoria: <?php echo $categoria['categoria'];?>');">
+                                    <input type="hidden" name="id" value = "<?php echo $categoria["id"];?>">
+                                    <button type="submit" class="btn modal-trigger" style="background: red; border-radius: 20px;" title="Editar"> <i class="material-icons">delete</i> </button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 <?php endforeach;?>
-                
-                  <!-- Modal Structure -->
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
-                    </div>
-                    <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
+            
           
             </div>
 
 
-        </div>
-
-        <div id="eli" class="city" style="display:none">
-            <h2>Tokyo</h2>
-            <p>Tokyo is the capital of Japan.</p>
         </div>
 
     </header>

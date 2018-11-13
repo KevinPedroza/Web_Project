@@ -20,6 +20,8 @@
 
     <?php
     
+        
+
         $dataPoints = array(
             array("label"=> "Cantidad de Clientes Registrados", "y"=> 590),
             array("label"=> "Cantidad de Productos Vendidos", "y"=> 261),
@@ -64,6 +66,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="productos.php">Productos</a></li>
                 <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="cerrar.php">Cerrar Sesión</a></li>
             </ul>
             </div>
         </nav>

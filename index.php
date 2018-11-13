@@ -4,9 +4,6 @@
 
     //this is gonna bring the functions nedless
     require "conexion.php";
-    //this is calling the view for the index
-    require "views/index.view.php";
-
     $errores = "";
     //this is gonna verify the info has been sent
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -30,5 +27,8 @@
             header("Location: cliente.php");
         }
     }
+
+    //this is calling the view for the index
+    require "views/index.view.php";
 
 ?>

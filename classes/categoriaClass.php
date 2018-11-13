@@ -1,6 +1,7 @@
 <?php
     //This is calling the conexion file to get into the database
     require "conexion.php";
+    
     //Here we are creating the category class
     class Categoria{
 
@@ -26,7 +27,7 @@
         //this function will update any category from the database
         function update($id){
             $conexion = conexion();
-            $sql = "UPDATE categorias SET categoria = '$this->categoria' descripcion = '$this->descripcion' WHERE id = '$id';";
+            $sql = "UPDATE categorias SET categoria = '$this->categoria', descripcion = '$this->descripcion' WHERE id = '$id';";
             $conexion->query($sql);
         }
     }

@@ -25,7 +25,7 @@
         //this function will insert data into the database
         function insert(){
             $conexion = conexion();
-            $sql = "INSERT INTO productos VALUES('$this->id_prod', '$this->nombre', '$this->descrip', '$this->img', '$this->categoria','$this->stock','$this->precio')";
+            $sql = "INSERT INTO productos VALUES(null,'$this->id_prod', '$this->nombre', '$this->descrip', '$this->img', '$this->categoria','$this->stock','$this->precio')";
             $conexion->query($sql);
         }
         //this function will delete any product from the data base

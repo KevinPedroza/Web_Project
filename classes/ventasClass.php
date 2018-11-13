@@ -5,14 +5,16 @@
     class Venta{
 
         public $id_producto;
+        public $id_cliente;
 
-        function __construct($id_producto){
+        function __construct($id_producto , $id_cliente){
             $this->id_producto = $id_producto;
+            $this->id_cliente = $id_cliente;
         }
         //this function will insert data into the database
         function insert(){
             $conexion = conexion();
-            $sql = "INSERT INTO ventas VALUES('$this->id_producto')";
+            $sql = "INSERT INTO ventas VALUES(null,'$this->id_producto', '$this->id_cliente')";
             $conexion->query($sql);
         }
     }
