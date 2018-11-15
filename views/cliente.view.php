@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Client</title>
-
-
-    
+    <!--- here we are getting the data --->
     <?php
     
         //this realizing the conexion
@@ -29,7 +27,7 @@
         );
             
     ?>
-
+    <!--- here we are creating and filling up the data to the chart --->
     <script>
         window.onload = function () {
         
@@ -61,6 +59,16 @@
 
     <?php include "header.php";?>
 
+    <style>
+        .container main .most .dere{
+            animation: go 3s linear 2s infinite alternate;
+        }
+        .container main .most .izqui{
+            animation: go 3s linear 2s infinite alternate;
+        }
+
+    </style>
+    
     <div class="container">
         <main>
             <div class="titulo">
@@ -68,11 +76,12 @@
             </div>
             <!-- Traer las imagenes mas vendidas de la base de datos -->
             <div class="most">
-                <div class="carousel">
-                    <h5><i class="material-icons dere">arrow_forward</i> Desliza <i class="material-icons izqui">arrow_back</i></h5>
+            <h5><i class="material-icons dere">arrow_forward</i> Desliza <i class="material-icons izqui">arrow_back</i></h5>
 
+                <div class="carousel">
+                    
                     <?php foreach($prod as $productos):?>
-                        <a class="carousel-item" href="#"><img src="img/<?php echo $productos['img'];?>"></a>
+                        <a class="carousel-item" href="productosingle.php?idpro=<?php echo $productos["id_producto"];?>&idcate=<?php echo $productos["id_categoria"];?>"><img src="img/<?php echo $productos['img'];?>"></a>
                     <?php endforeach;?>
                 </div>
             </div>

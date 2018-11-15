@@ -34,12 +34,6 @@ header .menu{
     border: 1px solid coral;
     border-radius: 30px;
 }
-.container .carousel .dere{
-    animation: go 3s linear 2s infinite alternate;
-}
-.container .carousel .izqui{
-    animation: go 3s linear 2s infinite alternate;
-}
 
 .container section .titulo_cate h4{
     padding: 10px;

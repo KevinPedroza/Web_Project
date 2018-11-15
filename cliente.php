@@ -18,7 +18,7 @@
     $nombre = $info2->fetch();
     
     //this is gonna bring all the products
-    $sql = "SELECT img FROM productos LIMIT 5";
+    $sql = "SELECT id_producto,id_categoria,img FROM productos LIMIT 5";
     $info2 = $conexion->prepare($sql); 
     $info2->execute();
     $prod = $info2->fetchAll();
