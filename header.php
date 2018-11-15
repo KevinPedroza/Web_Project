@@ -1,5 +1,4 @@
 <?php 
-
     $conexion = conexion();
 
     //this is bringing the information from the user
@@ -13,6 +12,12 @@
     $info2 = $conexion->prepare($sql); 
     $info2->execute(array(':cliente' => $id["id"]));
     $cantidad = $info2->fetch();
+
+    //this is gonna bring all the product list from the database
+    $sql = "SELECT l.id, p.nombre, l.precio, l.cantidad, p.img FROM lista AS l INNER JOIN productos AS p ON p.id_producto = l.id_producto WHERE id_cliente = :cliente;";
+    $info2 = $conexion->prepare($sql); 
+    $info2->execute(array(':cliente' => $id["id"]));
+    $lista = $info2->fetchAll();
 
     //here we are calling the correct view
     require "views/header.view.php";

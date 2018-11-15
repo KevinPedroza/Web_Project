@@ -5,22 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Client</title>
-     <script type="text/javascript">
-        $(document).ready(function(e) {
-            $(".dropdown-trigger").dropdown();
-            $('.carousel').carousel();
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
 
-            if(!localStorage.getItem("#modal1")){    
-                $('#modal1').modal(); 
-                $('#modal1').modal("open");
-                localStorage.setItem("#modal1","true");
-            }
-        });
-    </script>
+
     
     <?php
     

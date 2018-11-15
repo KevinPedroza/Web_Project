@@ -16,14 +16,20 @@
     </script>
 
     <?php include "header.php";?>
+
+    <script>
+            $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
+    </script>
     <a href="vistaproductos.php?idcate=<?php echo $idcate;?>" style="border-radius: 25px; width:5%; margin-top:10px;" title="Regresar" class="btn"><i class="material-icons">arrow_back</i></a>
     <main style ="text-align:center; width=100%;">
         <div class="container"> 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                 <h2>Producto - <?php echo $info["nombre"];?></h2>
 
-                <div class="img">
-                    <img src="img/<?php echo $info["img"];?>" style="width:30%; border-radius:30px;" title="<?php echo $info["nombre"];?>">
+                <div class="img" style="text-align:center;">
+                    <img src="img/<?php echo $info["img"];?>" class="materialboxed" style="width:50%; margin:auto; border-radius:30px;" title="<?php echo $info["nombre"];?>">
                 </div>
 
                 <?php 
