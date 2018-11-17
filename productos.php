@@ -17,9 +17,9 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $check = @getimagesize($_FILES["img"]["tmp_name"]);
         $sku = $_POST["sku"];
-        $producto = $_POST["producto"];
+        $producto = filter_var($_POST["producto"],FILTER_SANITIZE_STRING);
         $precio = $_POST["precio"];
-        $des = $_POST["des"];
+        $des = filter_var($_POST["des"],FILTER_SANITIZE_STRING);
         $stock = $_POST["stock"];
         $categoria = $_POST["categoria"];
 

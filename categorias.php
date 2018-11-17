@@ -16,8 +16,8 @@
     //this is verifying if the information was sent
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         
-        $cate = $_POST["cate"];
-        $des = $_POST["des"];
+        $cate = filter_var($_POST["cate"], FILTER_SANITIZE_STRING);
+        $des = filter_var($_POST["des"], FILTER_SANITIZE_STRING);
 
         //this is bringing all the categories
         $sql = "SELECT categoria FROM categorias WHERE categoria = '$cate';";

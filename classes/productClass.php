@@ -40,7 +40,6 @@
             $sql = "UPDATE productos SET id_producto = '$this->id_prod', nombre = '$this->nombre', descri = '$this->descrip', img = '$this->img', id_categoria = '$this->categoria', stock = '$this->stock', precio = '$this->precio' WHERE id = '$id';";
             $conexion->query($sql);
         }
-
     }
 
 

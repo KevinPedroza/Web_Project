@@ -39,7 +39,7 @@
     <header>
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">Ver Compras</a></li>
+                <li><a href="vercompras.php">Ver Compras</a></li>
                 <li class="divider"></li>
                 <li><a onclick="localStorage.clear();" href="cerrar.php">Cerrar Sesión</a></li>
             </ul>
@@ -47,7 +47,7 @@
             <div class="navbar-fixed">
                 <nav class="menu">
                     <div class="nav-wrapper">
-                        <a href="cliente.php" class="brand-logo"><i class="material-icons">shopping_cart</i>Hola, <?php echo $nombre["nombre"]; ?></a>
+                        <a href="cliente.php" class="brand-logo" title="Regresar al Inicio"><i class="material-icons">shopping_cart</i>Hola, <?php echo $id["nombre"]; ?></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <!-- Traer la cantidad de compras del cliente de la base de datos -->
                         <li><a href="#modal2" class = "modal-trigger"><i class="fas fa-shopping-cart"></i><span class="new badge"><?php echo $cantidad["cantidad"];?></span></a></li>

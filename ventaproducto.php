@@ -4,6 +4,9 @@
     //This is calling the conexion file to get into the database
     require "conexion.php";
 
+    //this is requiring the class for it to be done
+    require "classes/ventasClass.php";
+
     //this is getting the conexion from the database
     $conexion = conexion();
 
@@ -44,8 +47,8 @@
     $conexion->query($sql);
 
     //this is inserting the data into ventas
-    $sql = "INSERT INTO ventas VALUES(NULL," . $lista["id_producto"] . ", " . $lista["id_cliente"] . ", '$today' ," . $lista["cantidad"] . "," . $lista["precio"] . ");";
-    $conexion->query($sql);
+    $venta = new Venta($lista["id_producto"], $lista["id_cliente"], $today, $lista["cantidad"], $lista["precio"]);
+    $venta->insert();
 
     //this is deleting from the lista
     $sql = "DELETE FROM lista WHERE id_cliente = " . $id['id'] . " AND id = '$idlista';";
