@@ -23,7 +23,7 @@
     $idcate = $_GET["idcate"];
 
     //this is bringing the information from the products related to the category
-    $sql = "SELECT * FROM productos WHERE id_categoria = :cate;";
+    $sql = "SELECT * FROM productos WHERE id_categoria = :cate AND stock > 0;";
     $info2 = $conexion->prepare($sql); 
     $info2->execute(array(':cate' => $idcate));
     $info = $info2->fetchAll();

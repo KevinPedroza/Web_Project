@@ -148,21 +148,21 @@
                     <div class="col s12 m3">
                         <div class="card">
                             <div class="card-image">
-                                <img src="img/<?php echo $producto['img']?>" height = "200">
-                                <span class="card-title">Producto: <?php echo $producto['nombre']?></span>
+                                <img src="img/<?php echo $categoria['img']?>" height = "200">
+                                <span class="card-title">Producto: <?php echo $categoria['nombre']?></span>
                             </div>
                         <div class="card-content">
-                            <p><?php echo $producto['descri']; ?></p>
+                            <p><?php echo $categoria['descri']; ?></p>
                         </div>
                             <div class="card-action">
                                 <h4>Precio</h4>
-                                <h5><?php echo $producto['precio']?></h5>
+                                <h5><?php echo $categoria['precio']?></h5>
                                 <h4>Stock</h4>
-                                <h5><?php echo $producto['stock']?></h5>
-                                <a href="modifiprodu.php?id=<?php echo $producto["id"];?>" class="btn modal-trigger" style="border-radius: 20px;" title="Editar"> <i class="material-icons">create</i> </a>
+                                <h5><?php echo $categoria['stock']?></h5>
+                                <a href="modifiprodu.php?id=<?php echo $categoria["id"];?>" class="btn modal-trigger" style="border-radius: 20px;" title="Editar"> <i class="material-icons">create</i> </a>
                                 
-                                <form action="elimiprodu.php" style="display: inline-block;" method="POST" onsubmit="return confirm('Seguro que desea Eliminar el Producto: <?php echo $producto['nombre'];?>');">
-                                    <input type="hidden" name="id" value = "<?php echo $producto["id_producto"];?>">
+                                <form action="elimiprodu.php" style="display: inline-block;" method="POST" onsubmit="return confirm('Seguro que desea Eliminar el Producto: <?php echo $categoria['nombre'];?>');">
+                                    <input type="hidden" name="id" value = "<?php echo $categoria["id_producto"];?>">
                                     <button type="submit" class="btn modal-trigger" style="background: red; border-radius: 20px;" title="Editar"> <i class="material-icons">delete</i> </button>
                                 </form>
                             </div>

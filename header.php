@@ -1,4 +1,6 @@
 <?php 
+
+    //this is getting the conexion from the database
     $conexion = conexion();
 
     //this is bringing the information from the user

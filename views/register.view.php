@@ -24,6 +24,9 @@
         </div>
         <!-- this is containing the inputs to get the information -->
         <div class="info wow bounceIn">
+            <!-- this is coming back to the beginning -->
+            <a href="index.php" style="border-radius: 25px; width:5%; margin-top:10px;" title="Regresar" class="btn"><i class="material-icons">arrow_back</i></a>
+
             <h2>Sing Up</h2>
             <div class="row">
                 <!-- this form will call the php file to interact -->

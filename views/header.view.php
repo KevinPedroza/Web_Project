@@ -61,8 +61,7 @@
         <div id="modal2" class="modal">
             <div class="modal-content" style="text-align:center;">
             <h4>Articulos en el Carrito</h4>
-            <form action="">
-            
+
                 <table class="striped">
                     <thead>
                     <tr>
@@ -83,16 +82,12 @@
                             <td><?php echo $producto["cantidad"];?></td>
                             <td><?php echo $producto["precio"];?></td>
                             <td><a style="color:red;" href="borrarpro.php?idpro=<?php echo $producto["id"];?>"><i class="material-icons">delete</i></a></td>
+                            <td><a  href="ventaproducto.php?idlista=<?php echo $producto["id"];?>"><i class="material-icons">attach_money</i></a></td>
                         </tr>
                     <?php endforeach;?>
                     </tbody>
                 </table>
-                <?php if(empty($lista)):?>
-                    <button disabled class="btn"><i class="material-icons right">attach_money</i>CheckOut</button>
-                <?php else:?>
-                    <button class="btn"><i class="material-icons right">attach_money</i>CheckOut</button>
-                <?php endif;?>
-            </form>
+
         </div>
     </header>
 </body>

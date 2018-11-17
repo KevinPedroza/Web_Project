@@ -1,10 +1,18 @@
 <?php
+    session_start();
+
     //this is requiring the class for it to be done
     require "classes/categoriaClass.php";
 
     //this is getting the conexion from the file
     $conexion = conexion();
     $errores = "";
+
+    //this is verifying if there is a session active
+    if(!$_SESSION){
+        header("Location: index.php");
+    }
+
     //this is verifying if the information was sent
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         
