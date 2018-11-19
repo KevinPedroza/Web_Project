@@ -60,6 +60,13 @@
 
                 <div class="stock">
                     <div class="descri">
+                    <script>    
+                         $(document).ready(function (){
+                            $("input").keydown(function() {
+                                return false
+                            });
+                        });
+                    </script>
                         <h4>Cantidad</h4>
                         <input type="number" id = "total" oninput="myFunction()" name="cantidad" min="0" max="<?php echo $info["stock"];?>" placeholder="Cantidad">
                     </div>
