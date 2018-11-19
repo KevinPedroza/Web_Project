@@ -19,6 +19,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('.modal').modal(); 
+            $('.sidenav').sidenav();
             if(!localStorage.getItem("#modal1")){    
                 $('#modal1').modal(); 
                 $('#modal1').modal("open");
@@ -47,15 +48,27 @@
             <div class="navbar-fixed">
                 <nav class="menu">
                     <div class="nav-wrapper">
-                        <a href="cliente.php" class="brand-logo" title="Regresar al Inicio"><i class="material-icons">shopping_cart</i>Hola, <?php echo $id["nombre"]; ?></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down" style="display:flex; flex-direction:row;">
+                        <li><a href="cliente.php" class="brand-logo left" title="Regresar al Inicio"><i class="material-icons">shopping_cart</i>Hola, <?php echo $id["nombre"]; ?></a></li>
+                    </ul>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        
                         <!-- Traer la cantidad de compras del cliente de la base de datos -->
-                        <li><a href="#modal2" class = "modal-trigger"><i class="fas fa-shopping-cart"></i><span class="new badge"><?php echo $cantidad["cantidad"];?></span></a></li>
-                        <li><a href="#" data-target="dropdown1" class="dropdown-trigger"><i class="material-icons">more_vert</i></a></li>
-                        </ul>
+                        <li><a href="#modal2" title="Carrito" class = "modal-trigger"><i class="fas fa-shopping-cart"></i><span class="new badge"><?php echo $cantidad["cantidad"];?></span></a></li>
+                        <li data-target="dropdown1" title="Opciones" class="dropdown-trigger"><a href="#" ><i class="material-icons">more_vert</i></a></li>
+                        <li data-target="slide-out" title="Categorias" class="sidenav-trigger"><a href="#"><i class="material-icons">dehaze</i></a></li>
+                    </ul>
                     </div>
                 </nav>
             </div>
+
+        <ul id="slide-out" class="sidenav" style="text-align: center;">
+            <h1>Categorias</h1>
+            <?php foreach($categorias as $categoria):?>
+                <li><a class="waves-effect" href="vistaproductos.php?idcate=<?php echo $categoria["id"]?>"><?php echo $categoria["categoria"]?></a></li>
+                <li><div class="divider"></div></li>
+            <?php endforeach;?>
+        </ul>
 
         <!-- Modal Structure -->
         <div id="modal2" class="modal">

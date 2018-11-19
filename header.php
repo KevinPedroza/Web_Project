@@ -14,6 +14,12 @@
     $info2->execute(array(':cliente' => $id["id"]));
     $cantidad = $info2->fetch();
 
+    //this is gonna bring all the categories from the database
+    $sql = "SELECT * FROM categorias;";
+    $info2 = $conexion->prepare($sql); 
+    $info2->execute();
+    $categorias = $info2->fetchAll();
+
     //this is gonna bring all the product list from the database
     $sql = "SELECT l.id, p.nombre, l.precio, l.cantidad, p.img FROM lista AS l INNER JOIN productos AS p ON p.id_producto = l.id_producto WHERE id_cliente = :cliente;";
     $info2 = $conexion->prepare($sql); 
