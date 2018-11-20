@@ -17,6 +17,7 @@
 </head>
 <body>
     
+    <!-- this is gonna contain the information of the principal page -->
     <div class="container">
 
         <div class="title">

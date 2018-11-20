@@ -37,6 +37,7 @@
 
 </head>
 <body>
+    <!-- this is gonna call the header of the page -->
     <header>
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
@@ -44,7 +45,7 @@
                 <li class="divider"></li>
                 <li><a onclick="localStorage.clear();" href="cerrar.php">Cerrar Sesión</a></li>
             </ul>
-            
+            <!-- this is gonna have the navbar of the page -->
             <div class="navbar-fixed">
                 <nav class="menu">
                     <div class="nav-wrapper">
@@ -53,7 +54,7 @@
                     </ul>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         
-                        <!-- Traer la cantidad de compras del cliente de la base de datos -->
+                        <!-- this is gonna bring the quantity of sales by customer -->
                         <li><a href="#modal2" title="Carrito" class = "modal-trigger"><i class="fas fa-shopping-cart"></i><span class="new badge"><?php echo $cantidad["cantidad"];?></span></a></li>
                         <li data-target="dropdown1" title="Opciones" class="dropdown-trigger"><a href="#" ><i class="material-icons">more_vert</i></a></li>
                         <li data-target="slide-out" title="Categorias" class="sidenav-trigger"><a href="#"><i class="material-icons">dehaze</i></a></li>
@@ -61,7 +62,8 @@
                     </div>
                 </nav>
             </div>
-
+        
+        <!-- this is gonna call the sidnavbar of anypage -->
         <ul id="slide-out" class="sidenav" style="text-align: center;">
             <h1>Categorias</h1>
             <?php foreach($categorias as $categoria):?>

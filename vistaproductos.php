@@ -1,5 +1,5 @@
 <?php
-
+    //this is gonna active the sessions active
     session_start();
 
     //this is gonna bring the functions nedless

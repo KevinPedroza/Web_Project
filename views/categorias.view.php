@@ -19,8 +19,9 @@
     <title>CRUD Categorias</title>
 </head>
 <body>
-
+    
     <script type="text/javascript">
+        //this is gonna exchange the divs of the page
             function openCity(cityName) {
                 var i;
                 var x = document.getElementsByClassName("city");
@@ -30,7 +31,8 @@
                 document.getElementById(cityName).style.display = "block"; 
             }
     </script>
-
+     
+     <!-- This is gonna have the header of the page -->
     <header>   
 
         <div class="nav">

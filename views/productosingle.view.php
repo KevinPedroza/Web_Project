@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- this is gonna call the page's css -->
     <link rel="stylesheet" href="css/productosingle.css">
     <title>Detalles - Producto</title>
 </head>
 <body>  
 
     <script>
+    //this is gonna establish the price according to the quantity
         function myFunction() {
             document.getElementById("preciototal").value = document.getElementById("total").value * <?php echo $info["precio"];?>;
         }
     </script>
 
+    <!-- this is gonna call the header page -->
     <?php include "header.php";?>
 
     <script>
+    //this is gonna start the principal functions of materialize css
             $(document).ready(function(){
             $('.materialboxed').materialbox();
         });
     </script>
+
+    <!-- this is gonna take the page back -->
     <a href="vistaproductos.php?idcate=<?php echo $idcate;?>" style="border-radius: 25px; width:5%; margin-top:10px;" title="Regresar" class="btn"><i class="material-icons">arrow_back</i></a>
+    
+    <!-- this is gonna contain the main on the page containing the information of the producto to be bought -->
     <main style ="text-align:center; width=100%;">
         <div class="container"> 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">

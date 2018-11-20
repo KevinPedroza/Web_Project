@@ -1,4 +1,5 @@
 <?php
+    //this is gonna active the sessions active
     session_start();
 
     //this is requiring the class for it to be done

@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+    //this is gonna active the sessions active
+    session_start();
     //this is destroying the session
     session_destroy();
     //this is cleaning the session

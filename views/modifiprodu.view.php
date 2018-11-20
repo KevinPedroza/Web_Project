@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script>
+        //this is gonna start the principal functions of the materialize css
         $(document).ready(function(){
             $('#modal1').modal();
             $('#modal1').modal('open'); 
@@ -34,10 +35,6 @@
 </head>
 <body>
 
-    <?php
-
-
-    ?>
     <!-- Modal Structure -->
     <div id="modal1" class="modal" style="text-align: center;">
 
@@ -69,6 +66,7 @@
                     <div class="input-field col s7">
                         <select name="categoria">
                         <option value="" disabled selected>Seleccione una Categoria</option>
+                        <!-- this is gonna call the principal categories from the database -->
                         <?php foreach($categorias as $cate):?>
 
                             <?php echo "<option value=" . $cate['id'] . ">" . $cate['categoria'] . "</option> ";?>

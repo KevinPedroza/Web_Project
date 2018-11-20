@@ -21,6 +21,7 @@
 <body>
 
     <script type="text/javascript">
+    //this is gonna exchange the divs of the page and starting the functions of materialize css
             function openCity(cityName) {
                 var i;
                 var x = document.getElementsByClassName("city");
@@ -35,6 +36,7 @@
         });
     </script>
 
+    <!-- this is gonna call the header page and containing the divs of the page -->
     <header>   
 
         <div class="nav">

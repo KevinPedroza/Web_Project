@@ -1,5 +1,5 @@
 <?php 
-    
+    //this is gonna active the sessions active
     session_start();
 
     //This is calling the conexion file to get into the database

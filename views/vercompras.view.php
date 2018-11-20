@@ -7,9 +7,11 @@
     <title>Informe de Compras - KevinShop</title>
 </head>
 <body>
-
+    
+    <!-- this is gonna call the header page -->
     <?php include "header.php";?>
 
+    <!-- this is gonna contain the information from the database about sales -->
     <div class="container">
 
         <main>

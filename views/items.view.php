@@ -8,12 +8,15 @@
 </head>
 <body>
     
+    <!-- this is gonna call the header of the page -->
     <?php include "header.php";?>
 
+    <!-- this is gonna take the page back -->
     <section>
         <a href="vercompras.php" style="border-radius: 25px; margin-top:10px;" class="btn"><i class="material-icons">arrow_back</i></a>
     </section>
 
+    <!-- this is gonna contain the sales of the customer -->
     <div class="container">
 
         <main>

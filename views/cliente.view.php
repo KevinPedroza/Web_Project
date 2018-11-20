@@ -56,9 +56,11 @@
 </head>
 
 <body>
-
+    
+    <!-- this is gonna call the header page -->
     <?php include "header.php";?>
 
+    <!-- this is gonna create the animations -->  
     <style>
         .container main .most .dere{
             animation: go 3s linear 2s infinite alternate;
@@ -69,6 +71,7 @@
 
     </style>
     
+    <!-- this is gonna contain the information of the page -->
     <div class="container">
         <main>
             <div class="titulo">
@@ -145,6 +148,7 @@
         </section>
     </div>
 
+    <!-- this is gonna contain the footer of the page-->
     <footer class="page-footer teal lighten-2">
         <div class="container">
             <div class="row">
@@ -179,6 +183,7 @@
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
     </div>
+    <!-- this is gonna calling the principals functions of the chart -->
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

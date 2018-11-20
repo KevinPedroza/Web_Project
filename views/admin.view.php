@@ -54,6 +54,7 @@
         
     ?>
     <script>
+        //this is gonna fill the chart with information
         window.onload = function () {
         
         var chart = new CanvasJS.Chart("chartContainer", {
@@ -82,7 +83,7 @@
 
 </head>
 <body>
-    
+    <!-- this is gonna contain the header of the page -->
     <header>
         <nav>
             <div class="nav-wrapper">
@@ -95,7 +96,7 @@
             </div>
         </nav>
     </header>
-
+    <!-- this is gonna contain the chart of the page -->
     <div class="container">
         <div id="chartContainer" style="height: 450px; width: 100%;"></div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

@@ -8,8 +8,10 @@
 </head>
 <body>  
 
+    <!-- this is gonna call the header page -->
     <?php include "header.php";?>
 
+    <!-- this is gonna contain the main from the page where you can see the products of each category -->
     <main style="text-align:center;">
     <h2>Productos</h2>
         <div class="row">
