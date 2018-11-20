@@ -44,12 +44,13 @@
         }
     }
     
-    //this is bringing all the categories
+    //this is bringing all the products
     $sql = "SELECT * FROM productos";
     $info2 = $conexion->prepare($sql); 
     $info2->execute();
     $info = $info2->fetchAll();
 
+    
 
     //this is bringing the correct view 
     require "views/productos.view.php";

@@ -130,6 +130,8 @@
                         <p><?php echo $producto['descri']; ?></p>
                     </div>
                     <div class="card-action">
+                        <h4>Categoria</h4>
+                        <h5><?php echo $producto['precio']?></h5>
                         <h4>Precio</h4>
                         <h5><?php echo $producto['precio']?></h5>
                         <h4>Stock</h4>
@@ -161,6 +163,7 @@
                                 <h5><?php echo $categoria['precio']?></h5>
                                 <h4>Stock</h4>
                                 <h5><?php echo $categoria['stock']?></h5>
+                                
                                 <a href="modifiprodu.php?id=<?php echo $categoria["id"];?>" class="btn modal-trigger" style="border-radius: 20px;" title="Editar"> <i class="material-icons">create</i> </a>
                                 
                                 <form action="elimiprodu.php" style="display: inline-block;" method="POST" onsubmit="return confirm('Seguro que desea Eliminar el Producto: <?php echo $categoria['nombre'];?>');">
