@@ -19,9 +19,15 @@
         
     //this is bringing the information from the product
     $sql = "SELECT * FROM productos WHERE id_producto = :id;";
-    $info2 = $conexion->prepare($sql); 
-    $info2->execute(array(':id' => $venta["id_producto"]));
-    $producto = $info2->fetch();
+    $info = $conexion->prepare($sql); 
+    $info->execute(array(':id' => $venta["id_producto"]));
+    $producto = $info->fetch();
+
+    //this is gonna get the description of the product
+    $sql = "SELECT descri FROM productos WHERE id_producto = :id;";
+    $info = $conexion->prepare($sql); 
+    $info->execute(array(':id' => $venta["id_producto"]));
+    $descri = $info->fetch();
 
     //this is gonna call the correct view
     require "views/items.view.php";

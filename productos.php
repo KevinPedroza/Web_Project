@@ -45,12 +45,11 @@
     }
     
     //this is bringing all the products
-    $sql = "SELECT * FROM productos";
+    $sql = "SELECT p.*,ca.categoria AS categoria FROM productos AS p INNER JOIN categorias AS ca ON ca.id=p.id_categoria";
     $info2 = $conexion->prepare($sql); 
     $info2->execute();
     $info = $info2->fetchAll();
 
-    
 
     //this is bringing the correct view 
     require "views/productos.view.php";

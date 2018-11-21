@@ -40,7 +40,7 @@
         $ventas = $info["cuenta"];
 
         //this is gonna bring the sum of sales registered
-        $sql = "SELECT SUM(p.precio) AS total FROM ventas AS v INNER JOIN productos AS p ON p.id_producto = v.id_producto;";
+        $sql = "SELECT SUM(cantidad) AS total FROM ventas AS v INNER JOIN productos AS p ON p.id_producto = v.id_producto;";
         $info2 = $conexion->prepare($sql); 
         $info2->execute();
         $info = $info2->fetch();

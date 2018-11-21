@@ -2,9 +2,6 @@
     //this is gonna active the sessions active
     session_start();
 
-    //This is calling the conexion file to get into the database
-    require "conexion.php";
-
     //this is requiring the class for it to be done
     require "classes/ventasClass.php";
 

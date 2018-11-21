@@ -131,7 +131,7 @@
                     </div>
                     <div class="card-action">
                         <h4>Categoria</h4>
-                        <h5><?php echo $producto['precio']?></h5>
+                        <h5><?php echo $producto['categoria']?></h5>
                         <h4>Precio</h4>
                         <h5><?php echo $producto['precio']?></h5>
                         <h4>Stock</h4>
@@ -159,6 +159,8 @@
                             <p><?php echo $categoria['descri']; ?></p>
                         </div>
                             <div class="card-action">
+                            <h4>Categoria</h4>
+                                <h5><?php echo $categoria['categoria']?></h5>
                                 <h4>Precio</h4>
                                 <h5><?php echo $categoria['precio']?></h5>
                                 <h4>Stock</h4>

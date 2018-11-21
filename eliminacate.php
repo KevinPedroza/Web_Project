@@ -23,7 +23,7 @@
     $info = $info2->fetch();
 
     //this is verifying if the information was sent
-    if($_SERVER["REQUEST_METHOD"] == "POST" && $info !== false){
+    if($_SERVER["REQUEST_METHOD"] == "POST" && $info === false){
 
         $conexion = conexion();
         $sql = "DELETE FROM categorias WHERE id = '$id';";

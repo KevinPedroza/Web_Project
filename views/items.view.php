@@ -32,7 +32,7 @@
                 <tbody>
                     <tr>
                         <td><?php echo $venta["total"];?></td>
-                        <td><?php echo $producto["descri"];?></td>
+                        <td><?php echo $descri["descri"];?></td>
                         <td><?php echo $producto["precio"];?></td>
                     </tr>
                 </tbody>
